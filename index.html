@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jannis R. — Start</title>
+  <meta name="description" content="Minimalistische persönliche Startseite von Jannis R.">
+  <style>
+    :root{
+      --bg:#f7f8fb;
+      --card:#ffffff;
+      --muted:#5b616a;
+      --accent:#20b581ff;
+      --text:#0b1220;
+      --radius:14px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      background:linear-gradient(180deg,#fbfdff,var(--bg));
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.6;
+      padding:40px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--max);
+      background:transparent;
+      min-height:100vh;
+    }
+
+    header{
+      display:flex;
+      gap:28px;
+      align-items:center;
+      margin-bottom:32px;
+    }
+
+    .me{
+      width:96px;
+      height:96px;
+      border-radius:16px;
+      overflow:hidden;
+      flex:0 0 96px;
+      background:linear-gradient(135deg,#e6eefc,#eef6ff);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 8px 26px rgba(11,18,32,0.07);
+    }
+    .me img{width:100%;height:100%;object-fit:cover;display:block}
+
+    h1{
+      font-size:1.5rem;
+      margin:0 0 8px 0;
+      font-weight:600;
+    }
+    .lead{
+      margin:0;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    main{display:grid;gap:24px}
+
+    /* layout sections */
+    .grid{
+      display:grid;
+      gap:20px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width:880px){
+      .grid{grid-template-columns: 1fr 360px}
+    }
+
+    section.card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:0 10px 30px rgba(11,18,32,0.08);
+    }
+
+    /* table */
+    .table-wrap{overflow:auto}
+    table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:0.95rem;
+      min-width:560px;
+      transition:background .12s ease;
+    }
+    thead th{
+      text-align:left;
+      padding:10px 14px;
+      font-weight:700;
+      border-bottom:2px solid rgba(11,18,32,0.06);
+      background:transparent;
+    }
+    tbody td{
+      padding:12px 14px;
+      border-bottom:1px solid rgba(11,18,32,0.04);
+      color:var(--muted);
+      transition:background .12s ease, color .12s ease;
+    }
+    tbody tr:hover td{
+      background:rgba(32,181,129,0.06);
+      color:var(--text);
+    }
+
+    /* gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:8px;
+    }
+    @media (max-width:720px){
+      .gallery{grid-template-columns:1fr}
+    }
+
+    .card-link{
+      display:block;
+      text-decoration:none;
+      color:inherit;
+      background:linear-gradient(180deg,#fff,#fbfdff);
+      border-radius:12px;
+      overflow:hidden;
+      border:1px solid rgba(11,18,32,0.04);
+      transition:transform .18s ease, box-shadow .18s ease;
+      box-shadow:0 8px 20px rgba(11,18,32,0.06);
+    }
+    .card-link:focus{outline:3px solid rgba(32,181,129,0.18); outline-offset:3px}
+    .card-link:hover{transform:translateY(-6px); box-shadow:0 18px 36px rgba(11,18,32,0.10)}
+    .card-img{width:100%;height:140px;background:#e9eef7;display:block;object-fit:cover}
+    .card-body{padding:12px 14px}
+    .card-title{font-size:1rem;margin:0 0 6px 0;font-weight:700}
+    .card-text{margin:0;color:var(--muted);font-size:0.95rem}
+
+    /* footer / small */
+    .muted{color:var(--muted);font-size:0.95rem}
+
+    /* accessibility & links */
+    a{color:var(--accent)}
+    a:focus{outline-offset:3px}
+  </style>
+</head>
+<body>
+  <div class="wrap" role="document">
+    <header>
+      <div class="me" aria-hidden="false">
+        <img src="assets/me.jpg" alt="Porträt von Jannis R.">
+      </div>
+      <div>
+        <h1>Jannis R.</h1>
+        <p class="lead">Persönliche Startseite · kurze Notizen, Projekte und Stationen</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="grid">
+        <section class="card" aria-labelledby="about-title">
+          <h2 id="about-title">Über mich</h2>
+          <p>Ich bin Jannis, interessiert an Geoinformatik, Web‑Technologien und datengetriebener Visualisierung. Diese minimalistische Seite dient als persönlicher Hub — Links, kurze Stationen und ein paar Ressourcen.</p>
+          <p class="muted">Kurzfristiges Ziel: Projekte klar dokumentieren und schnell verlinken. Langfristig: robuste, zugängliche Werkzeuge bauen.</p>
+        </section>
+
+        <section class="card" aria-labelledby="contact-title">
+          <h2 id="contact-title">Kontakt & Links</h2>
+          <p class="muted">E‑Mail: <a href="mailto:mail@example.com">mail@example.com</a></p>
+          <p class="muted">GitHub: <a href="https://github.com/jannisr28" target="_blank" rel="noopener">github.com/jannisr28</a></p>
+        </section>
+
+        <section class="card" aria-labelledby="timeline-title">
+          <h2 id="timeline-title">Stationen</h2>
+          <div class="table-wrap" role="region" aria-label="Stationen Tabelle">
+            <table>
+              <thead>
+                <tr>
+                  <th>Jahr</th>
+                  <th>Station</th>
+                  <th>Ort</th>
+                  <th>Stichwort</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2018</td>
+                  <td>Praktikum</td>
+                  <td>Berlin</td>
+                  <td>Webentwicklung</td>
+                </tr>
+                <tr>
+                  <td>2019</td>
+                  <td>Bachelor</td>
+                  <td>München</td>
+                  <td>Geoinformatik</td>
+                </tr>
+                <tr>
+                  <td>2020</td>
+                  <td>Werkstudent</td>
+                  <td>Hamburg</td>
+                  <td>Datenanalyse</td>
+                </tr>
+                <tr>
+                  <td>2021</td>
+                  <td>Masterstart</td>
+                  <td>Leipzig</td>
+                  <td>Forschung</td>
+                </tr>
+                <tr>
+                  <td>2023</td>
+                  <td>Projekt</td>
+                  <td>Remote</td>
+                  <td>Mapping</td>
+                </tr>
+                <tr>
+                  <td>2025</td>
+                  <td>Freiberuflich</td>
+                  <td>Remote</td>
+                  <td>Tools & Visuals</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="gallery-title">
+          <h2 id="gallery-title">Galerie / Links</h2>
+          <div class="gallery" role="list">
+            <a class="card-link" role="listitem" href="https://github.com/jannisr28" target="_blank" rel="noopener" aria-label="GitHub — öffnet in neuem Tab">
+              <img class="card-img" src="https://picsum.photos/600/400?random=1" alt="GitHub Vorschaubild">
+              <div class="card-body">
+                <div class="card-title">GitHub</div>
+                <p class="card-text">Quellcode, Repositories und Projekte.</p>
+              </div>
+            </a>
+
+            <a class="card-link" role="listitem" href="https://example.com/portfolio" target="_blank" rel="noopener" aria-label="Portfolio — öffnet in neuem Tab">
+              <img class="card-img" src="https://picsum.photos/600/400?random=2" alt="Portfolio Vorschaubild">
+              <div class="card-body">
+                <div class="card-title">Portfolio</div>
+                <p class="card-text">Ausgewählte Projekte und Visualisierungen.</p>
+              </div>
+            </a>
+
+            <a class="card-link" role="listitem" href="https://example.com/fotoblog" target="_blank" rel="noopener" aria-label="Fotoblog — öffnet in neuem Tab">
+              <img class="card-img" src="https://picsum.photos/600/400?random=3" alt="Fotoblog Vorschaubild">
+              <div class="card-body">
+                <div class="card-title">Fotoblog</div>
+                <p class="card-text">Bilder und kurze Bildgeschichten.</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>
