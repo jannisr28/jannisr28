@@ -1,0 +1,20 @@
+[
+  {
+    "image": "https://picsum.photos/seed/news1/200/140",
+    "title": "Neue Web-Map veröffentlicht",
+    "date": "21.10.2025",
+    "text": "Die neue Web-Map zum Thema Mobilität ist jetzt online."
+  },
+  {
+    "image": "https://picsum.photos/seed/news2/200/140",
+    "title": "Vortrag in Mainz",
+    "date": "15.09.2025",
+    "text": "Erfolgreicher Vortrag auf der Geoinformatik-Konferenz in Mainz."
+  },
+  {
+    "image": "https://picsum.photos/seed/news3/200/140",
+    "title": "Fotoblog gestartet",
+    "date": "01.08.2025",
+    "text": "Der neue Fotoblog zeigt erste Bilder aus Rheinland-Pfalz."
+  }
+]
