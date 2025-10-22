@@ -265,6 +265,68 @@
       </section>
     </main>
   </div>
+  <!-- Kontaktbereich unten rechts -->
+  <div class="contact-icons" aria-label="Kontaktlinks">
+    <a href="mailto:J.Rhein2000@gmail.com" target="_blank" rel="noopener" title="E-Mail">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="E-Mail" />
+    </a>
+    <a href="https://github.com/jannisr28" target="_blank" rel="noopener" title="GitHub">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" />
+    </a>
+    <a href="https://www.linkedin.com/in/jannisr28/" target="_blank" rel="noopener" title="LinkedIn">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" />
+    </a>
+  </div>
+  <style>
+    .contact-icons {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      display: flex;
+      gap: 16px;
+      z-index: 99;
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: 0 4px 18px rgba(32,181,129,0.12);
+      padding: 10px 16px;
+      align-items: center;
+    }
+    .contact-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: none;
+      transition: background 0.2s;
+    }
+    .contact-icons a:hover {
+      background: var(--tab-bg);
+    }
+    .contact-icons img {
+      width: 22px;
+      height: 22px;
+      display: block;
+      filter: grayscale(0.2) brightness(0.9);
+    }
+    @media (max-width: 600px) {
+      .contact-icons {
+        right: 10px;
+        bottom: 10px;
+        padding: 7px 10px;
+        gap: 10px;
+      }
+      .contact-icons a {
+        width: 28px;
+        height: 28px;
+      }
+      .contact-icons img {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  </style>
   <script>
     // Light/Night Mode Toggle
     const modeBtn = document.getElementById('modeBtn');
