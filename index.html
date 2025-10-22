@@ -6,14 +6,27 @@
   <title>Jannis R. — Start</title>
   <meta name="description" content="Minimalistische persönliche Startseite von Jannis R.">
   <style>
-    :root{
-      --bg:#f7f8fb;
-      --card:#ffffff;
-      --muted:#5b616a;
-      --accent:#20b581ff;
-      --text:#0b1220;
-      --radius:14px;
-      --max:1100px;
+    :root {
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --muted: #5b616a;
+      --accent: #20b581ff;
+      --text: #0b1220;
+      --radius: 14px;
+      --max: 1100px;
+      --tab-bg: #e9eef7;
+      --tab-active: var(--accent);
+      --tab-inactive: #d1e7e0;
+    }
+    [data-theme="dark"] {
+      --bg: #181c21;
+      --card: #23272e;
+      --muted: #b2b8c2;
+      --accent: #20b581ff;
+      --text: #f7f8fb;
+      --tab-bg: #23272e;
+      --tab-active: #20b581ff;
+      --tab-inactive: #2c3a34;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -28,6 +41,7 @@
       padding:40px;
       display:flex;
       justify-content:center;
+      transition:background 0.3s, color 0.3s;
     }
 
     .wrap{
@@ -42,6 +56,7 @@
       gap:28px;
       align-items:center;
       margin-bottom:32px;
+      justify-content:space-between;
     }
 
     .me{
@@ -69,6 +84,24 @@
       font-size:1rem;
     }
 
+    .mode-btn {
+      background: var(--card);
+      color: var(--accent);
+      border: none;
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(32,181,129,0.08);
+      transition: background 0.3s, color 0.3s;
+      margin-left: auto;
+      margin-right: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .mode-btn:focus { outline: 2px solid var(--accent); }
+
     main{display:grid;gap:24px}
 
     /* layout sections */
@@ -86,6 +119,52 @@
       border-radius:var(--radius);
       padding:22px;
       box-shadow:0 10px 30px rgba(11,18,32,0.08);
+      transition:background 0.3s, color 0.3s;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: var(--tab-inactive);
+      color: var(--text);
+      border: none;
+      border-radius: 8px 8px 0 0;
+      padding: 10px 22px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+      box-shadow: 0 2px 8px rgba(32,181,129,0.08);
+      position: relative;
+      outline: none;
+    }
+    .tab-btn.active {
+      background: var(--tab-active);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(32,181,129,0.18);
+      z-index: 2;
+      animation: tabPop 0.4s cubic-bezier(.5,1.8,.5,1) both;
+    }
+    @keyframes tabPop {
+      0% { transform: scale(0.95); }
+      80% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.5s;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px);}
+      to { opacity: 1; transform: translateY(0);}
     }
 
     /* table */
@@ -134,7 +213,7 @@
       border-radius:12px;
       overflow:hidden;
       border:1px solid rgba(11,18,32,0.04);
-      transition:transform .18s ease, box-shadow .18s ease;
+      transition:transform .18s ease, box-shadow .18s ease, background 0.3s, color 0.3s;
       box-shadow:0 8px 20px rgba(11,18,32,0.06);
     }
     .card-link:focus{outline:3px solid rgba(32,181,129,0.18); outline-offset:3px}
@@ -153,98 +232,155 @@
   </style>
 </head>
 <body>
-  <div class="wrap" role="document">
+  <div class="wrap" role="document" id="page-wrap">
     <header>
-      <div class="me" aria-hidden="false">
-        <img src="assets/me.jpg" alt="Porträt von Jannis R.">
+      <div style="display:flex;align-items:center;gap:28px;">
+        <div class="me" aria-hidden="false">
+          <img src="assets/me.jpg" alt="Porträt von Jannis R.">
+        </div>
+        <div>
+          <h1>Jannis R.</h1>
+          <p class="lead">Persönliche Startseite · kurze Notizen, Projekte und Stationen</p>
+        </div>
       </div>
-      <div>
-        <h1>Jannis R.</h1>
-        <p class="lead">Persönliche Startseite · kurze Notizen, Projekte und Stationen</p>
-      </div>
+      <button class="mode-btn" id="modeBtn" aria-label="Licht/Nachtmodus umschalten">
+        <span id="modeIcon">🌙</span> <span id="modeText">Night</span>
+      </button>
     </header>
 
     <main>
       <div class="grid">
-        <section class="card" aria-labelledby="about-title">
-          <h2 id="about-title">Über mich</h2>
-          <p>Ich bin Jannis, interessiert an Geoinformatik, Web‑Technologien und datengetriebener Visualisierung. Diese minimalistische Seite dient als persönlicher Hub — Links, kurze Stationen und ein paar Ressourcen.</p>
-          <p class="muted">Kurzfristiges Ziel: Projekte klar dokumentieren und schnell verlinken. Langfristig: robuste, zugängliche Werkzeuge bauen.</p>
-        </section>
-
-        <section class="card" aria-labelledby="contact-title">
-          <h2 id="contact-title">Kontakt & Links</h2>
-          <p class="muted">E‑Mail: <a href="mailto:J.Rhein2000@gmail.com">J.Rhein2000@gmail.com</a></p>
-          <p class="muted">GitHub: <a href="https://github.com/jannisr28" target="_blank" rel="noopener">github.com/jannisr28</a></p>
-        </section>
-
-        <section class="card" aria-labelledby="timeline-title">
-          <h2 id="timeline-title">Stationen</h2>
-          <div class="table-wrap" role="region" aria-label="Stationen Tabelle">
-            <table>
-              <thead>
-                <tr>
-                  <th>Jahr</th>
-                  <th>Station</th>
-                  <th>Ort</th>
-                  <th>Stichwort</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>2020</td>
-                  <td>Abitur</td>
-                  <td>Montabaur</td>
-                  <td>Wirtschaft</td>
-                </tr>
-                <tr>
-                  <td>2022</td>
-                  <td>Ausbildung</td>
-                  <td>Staudt</td>
-                  <td>Industriekaufmann</td>
-                </tr>
-                <tr>
-                  <td>2023</td>
-                  <td>Kombiniertes Studium</td>
-                  <td>Mainz</td>
-                  <td>Geoinformatik&amp;Vermessung</td>
-                </tr>
-              </tbody>
-            </table>
+        <section class="card" aria-labelledby="tabs-title">
+          <h2 id="tabs-title" style="margin-bottom:0;">Bereiche</h2>
+          <nav class="tabs" aria-label="Bereichs-Tabs">
+            <button class="tab-btn active" data-tab="about" aria-controls="tab-about" aria-selected="true">Über mich</button>
+            <button class="tab-btn" data-tab="contact" aria-controls="tab-contact" aria-selected="false">Kontakt & Links</button>
+            <button class="tab-btn" data-tab="timeline" aria-controls="tab-timeline" aria-selected="false">Stationen</button>
+            <button class="tab-btn" data-tab="gallery" aria-controls="tab-gallery" aria-selected="false">Galerie / Links</button>
+          </nav>
+          <div id="tab-about" class="tab-content active" role="tabpanel">
+            <p>Ich bin Jannis, interessiert an Geoinformatik, Web‑Technologien und datengetriebener Visualisierung. Diese minimalistische Seite dient als persönlicher Hub — Links, kurze Stationen und ein paar Ressourcen.</p>
+            <p class="muted">Kurzfristiges Ziel: Projekte klar dokumentieren und schnell verlinken. Langfristig: robuste, zugängliche Werkzeuge bauen.</p>
+          </div>
+          <div id="tab-contact" class="tab-content" role="tabpanel">
+            <p class="muted">E‑Mail: <a href="mailto:J.Rhein2000@gmail.com">J.Rhein2000@gmail.com</a></p>
+            <p class="muted">GitHub: <a href="https://github.com/jannisr28" target="_blank" rel="noopener">github.com/jannisr28</a></p>
+          </div>
+          <div id="tab-timeline" class="tab-content" role="tabpanel">
+            <div class="table-wrap" role="region" aria-label="Stationen Tabelle">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Jahr</th>
+                    <th>Station</th>
+                    <th>Ort</th>
+                    <th>Stichwort</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2020</td>
+                    <td>Abitur</td>
+                    <td>Montabaur</td>
+                    <td>Wirtschaft</td>
+                  </tr>
+                  <tr>
+                    <td>2022</td>
+                    <td>Ausbildung</td>
+                    <td>Staudt</td>
+                    <td>Industriekaufmann</td>
+                  </tr>
+                  <tr>
+                    <td>2023</td>
+                    <td>Kombiniertes Studium</td>
+                    <td>Mainz</td>
+                    <td>Geoinformatik&amp;Vermessung</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div id="tab-gallery" class="tab-content" role="tabpanel">
+            <div class="gallery" role="list">
+              <a class="card-link" role="listitem" href="https://github.com/jannisr28" target="_blank" rel="noopener" aria-label="GitHub — öffnet in neuem Tab">
+                <img class="card-img" src="https://picsum.photos/600/400?random=1" alt="GitHub Vorschaubild">
+                <div class="card-body">
+                  <div class="card-title">GitHub</div>
+                  <p class="card-text">Quellcode, Repositories und Projekte.</p>
+                </div>
+              </a>
+              <a class="card-link" role="listitem" href="https://example.com/portfolio" target="_blank" rel="noopener" aria-label="Portfolio — öffnet in neuem Tab">
+                <img class="card-img" src="https://picsum.photos/600/400?random=2" alt="Portfolio Vorschaubild">
+                <div class="card-body">
+                  <div class="card-title">Portfolio</div>
+                  <p class="card-text">Ausgewählte Projekte und Visualisierungen.</p>
+                </div>
+              </a>
+              <a class="card-link" role="listitem" href="https://example.com/fotoblog" target="_blank" rel="noopener" aria-label="Fotoblog — öffnet in neuem Tab">
+                <img class="card-img" src="https://picsum.photos/600/400?random=3" alt="Fotoblog Vorschaubild">
+                <div class="card-body">
+                  <div class="card-title">Fotoblog</div>
+                  <p class="card-text">Bilder und kurze Bildgeschichten.</p>
+                </div>
+              </a>
+            </div>
           </div>
         </section>
-
-        <section class="card" aria-labelledby="gallery-title">
-          <h2 id="gallery-title">Galerie / Links</h2>
-          <div class="gallery" role="list">
-            <a class="card-link" role="listitem" href="https://github.com/jannisr28" target="_blank" rel="noopener" aria-label="GitHub — öffnet in neuem Tab">
-              <img class="card-img" src="https://picsum.photos/600/400?random=1" alt="GitHub Vorschaubild">
-              <div class="card-body">
-                <div class="card-title">GitHub</div>
-                <p class="card-text">Quellcode, Repositories und Projekte.</p>
-              </div>
-            </a>
-
-            <a class="card-link" role="listitem" href="https://example.com/portfolio" target="_blank" rel="noopener" aria-label="Portfolio — öffnet in neuem Tab">
-              <img class="card-img" src="https://picsum.photos/600/400?random=2" alt="Portfolio Vorschaubild">
-              <div class="card-body">
-                <div class="card-title">Portfolio</div>
-                <p class="card-text">Ausgewählte Projekte und Visualisierungen.</p>
-              </div>
-            </a>
-
-            <a class="card-link" role="listitem" href="https://example.com/fotoblog" target="_blank" rel="noopener" aria-label="Fotoblog — öffnet in neuem Tab">
-              <img class="card-img" src="https://picsum.photos/600/400?random=3" alt="Fotoblog Vorschaubild">
-              <div class="card-body">
-                <div class="card-title">Fotoblog</div>
-                <p class="card-text">Bilder und kurze Bildgeschichten.</p>
-              </div>
-            </a>
-          </div>
-        </section>
-
       </div>
     </main>
   </div>
+  <script>
+    // Light/Night Mode Toggle
+    const modeBtn = document.getElementById('modeBtn');
+    const modeIcon = document.getElementById('modeIcon');
+    const modeText = document.getElementById('modeText');
+    const html = document.documentElement;
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      if (theme === 'dark') {
+        modeIcon.textContent = '☀️';
+        modeText.textContent = 'Light';
+      } else {
+        modeIcon.textContent = '🌙';
+        modeText.textContent = 'Night';
+      }
+      localStorage.setItem('theme', theme);
+    }
+
+    modeBtn.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      setTheme(current);
+    });
+
+    // On load, set theme from localStorage or system
+    (function() {
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        setTheme(saved);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setTheme('dark');
+      }
+    })();
+
+    // Tabs Animation & Switching
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        const tab = btn.getAttribute('data-tab');
+        tabContents.forEach(content => {
+          content.classList.remove('active');
+        });
+        document.getElementById('tab-' + tab).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
