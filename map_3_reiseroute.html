@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b0af60ef7f319e6a82312a5ac26e2c86 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_b0af60ef7f319e6a82312a5ac26e2c86" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b0af60ef7f319e6a82312a5ac26e2c86 = L.map(
+                "map_b0af60ef7f319e6a82312a5ac26e2c86",
+                {
+                    center: [56.5, -4.5],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d06d953989cfc0562ba0ff2a9444de5b = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_d06d953989cfc0562ba0ff2a9444de5b.addTo(map_b0af60ef7f319e6a82312a5ac26e2c86);
+        
+    
+            var tile_layer_5f8157eb8a3ece40b1c37b38a4a83cdf = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5f8157eb8a3ece40b1c37b38a4a83cdf.addTo(map_b0af60ef7f319e6a82312a5ac26e2c86);
+        
+    
+            var poly_line_bb77adc865581d29da7332820dbcfd09 = L.polyline(
+                [[55.9533, -3.1883], [56.1165, -3.9369], [55.8642, -4.2518], [56.8198, -5.1052]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_b0af60ef7f319e6a82312a5ac26e2c86);
+        
+    
+            var marker_2c92de27c86fb621895f5196c833e63b = L.marker(
+                [55.9533, -3.1883],
+                {
+}
+            ).addTo(map_b0af60ef7f319e6a82312a5ac26e2c86);
+        
+    
+            var div_icon_cca6ff35d36684faa7f4b6458d5944db = L.divIcon({
+  "html": "\u003cdiv style=\"background:#20b581;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1.1em;border:2px solid #fff;\"\u003e1\u003c/div\u003e",
+  "iconSize": [30, 30],
+  "iconAnchor": [15, 15],
+  "className": "empty",
+});
+        
+    
+                marker_2c92de27c86fb621895f5196c833e63b.setIcon(div_icon_cca6ff35d36684faa7f4b6458d5944db);
+            
+    
+            var marker_bac16e2ecf797e5be7baa8f74d083a03 = L.marker(
+                [55.9533, -3.1883],
+                {
+}
+            ).addTo(map_b0af60ef7f319e6a82312a5ac26e2c86);
+        
+    
+        var popup_a1d01539f60cd6902103650ac81407a3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_250c6fcdf36a6ef71117160421db672b = $(`<div id="html_250c6fcdf36a6ef71117160421db672b" style="width: 100.0%; height: 100.0%;"><b>Edinburgh</b><br>Station 1</div>`)[0];
+                popup_a1d01539f60cd6902103650ac81407a3.setContent(html_250c6fcdf36a6ef71117160421db672b);
+            
+        
+
+        marker_bac16e2ecf797e5be7baa8f74d083a03.bindPopup(popup_a1d01539f60cd6902103650ac81407a3)
+        ;
+
+        
+    
+    
+            marker_bac16e2ecf797e5be7baa8f74d083a03.bindTooltip(
+                `<div>
+                     1. Edinburgh
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_5efe57863d197eeddd550864128d80b9 = L.marker(
+                [56.1165, -3.9369],
+                {
+}
+            ).addTo(map_b0af60ef7f319e6a82312a5ac26e2c86);
+        
+    
+            var div_icon_f127415a8f691ae787b46ce2b151b8f6 = L.divIcon({
+  "html": "\u003cdiv style=\"background:#20b581;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1.1em;border:2px solid #fff;\"\u003e2\u003c/div\u003e",
+  "iconSize": [30, 30],
+  "iconAnchor": [15, 15],
+  "className": "empty",
+});
+        
+    
+                marker_5efe57863d197eeddd550864128d80b9.setIcon(div_icon_f127415a8f691ae787b46ce2b151b8f6);
+            
+    
+            var marker_cf88c324d8aacd9d90b304ec2a9a070c = L.marker(
+                [56.1165, -3.9369],
+                {
+}
+            ).addTo(map_b0af60ef7f319e6a82312a5ac26e2c86);
+        
+    
+        var popup_b3ef66fc4aecef53cf47cee3c162578d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2faf58f7ebffa3214d7f7c7eac2f0bb0 = $(`<div id="html_2faf58f7ebffa3214d7f7c7eac2f0bb0" style="width: 100.0%; height: 100.0%;"><b>Stirling</b><br>Station 2</div>`)[0];
+                popup_b3ef66fc4aecef53cf47cee3c162578d.setContent(html_2faf58f7ebffa3214d7f7c7eac2f0bb0);
+            
+        
+
+        marker_cf88c324d8aacd9d90b304ec2a9a070c.bindPopup(popup_b3ef66fc4aecef53cf47cee3c162578d)
+        ;
+
+        
+    
+    
+            marker_cf88c324d8aacd9d90b304ec2a9a070c.bindTooltip(
+                `<div>
+                     2. Stirling
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_bb151a55ac9e9b016126fa124000ec16 = L.marker(
+                [55.8642, -4.2518],
+                {
+}
+            ).addTo(map_b0af60ef7f319e6a82312a5ac26e2c86);
+        
+    
+            var div_icon_0b32a5bd35aeeae92540715100554930 = L.divIcon({
+  "html": "\u003cdiv style=\"background:#20b581;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1.1em;border:2px solid #fff;\"\u003e3\u003c/div\u003e",
+  "iconSize": [30, 30],
+  "iconAnchor": [15, 15],
+  "className": "empty",
+});
+        
+    
+                marker_bb151a55ac9e9b016126fa124000ec16.setIcon(div_icon_0b32a5bd35aeeae92540715100554930);
+            
+    
+            var marker_374f3332bd3c70a9689df1968af79f93 = L.marker(
+                [55.8642, -4.2518],
+                {
+}
+            ).addTo(map_b0af60ef7f319e6a82312a5ac26e2c86);
+        
+    
+        var popup_163434ee8cae094d91ef3ccef0600a6f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a3163c9e389b417815f0dd8153a68f8b = $(`<div id="html_a3163c9e389b417815f0dd8153a68f8b" style="width: 100.0%; height: 100.0%;"><b>Glasgow</b><br>Station 3</div>`)[0];
+                popup_163434ee8cae094d91ef3ccef0600a6f.setContent(html_a3163c9e389b417815f0dd8153a68f8b);
+            
+        
+
+        marker_374f3332bd3c70a9689df1968af79f93.bindPopup(popup_163434ee8cae094d91ef3ccef0600a6f)
+        ;
+
+        
+    
+    
+            marker_374f3332bd3c70a9689df1968af79f93.bindTooltip(
+                `<div>
+                     3. Glasgow
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_6beea510e0e8bb91eaa5ffdf8e8af6c2 = L.marker(
+                [56.8198, -5.1052],
+                {
+}
+            ).addTo(map_b0af60ef7f319e6a82312a5ac26e2c86);
+        
+    
+            var div_icon_eeb18c854c6ec112cd7c112473f04055 = L.divIcon({
+  "html": "\u003cdiv style=\"background:#20b581;color:white;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:1.1em;border:2px solid #fff;\"\u003e4\u003c/div\u003e",
+  "iconSize": [30, 30],
+  "iconAnchor": [15, 15],
+  "className": "empty",
+});
+        
+    
+                marker_6beea510e0e8bb91eaa5ffdf8e8af6c2.setIcon(div_icon_eeb18c854c6ec112cd7c112473f04055);
+            
+    
+            var marker_35598817ec32493142e8b0ef923a2df8 = L.marker(
+                [56.8198, -5.1052],
+                {
+}
+            ).addTo(map_b0af60ef7f319e6a82312a5ac26e2c86);
+        
+    
+        var popup_b2aee384f22841c8235bc034744a1b1b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_38e8bce31b6843a5ce46c2e8b96e765e = $(`<div id="html_38e8bce31b6843a5ce46c2e8b96e765e" style="width: 100.0%; height: 100.0%;"><b>Fort William</b><br>Station 4</div>`)[0];
+                popup_b2aee384f22841c8235bc034744a1b1b.setContent(html_38e8bce31b6843a5ce46c2e8b96e765e);
+            
+        
+
+        marker_35598817ec32493142e8b0ef923a2df8.bindPopup(popup_b2aee384f22841c8235bc034744a1b1b)
+        ;
+
+        
+    
+    
+            marker_35598817ec32493142e8b0ef923a2df8.bindTooltip(
+                `<div>
+                     4. Fort William
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            tile_layer_d06d953989cfc0562ba0ff2a9444de5b.addTo(map_b0af60ef7f319e6a82312a5ac26e2c86);
+        
+    
+            tile_layer_5f8157eb8a3ece40b1c37b38a4a83cdf.addTo(map_b0af60ef7f319e6a82312a5ac26e2c86);
+        
+    
+                marker_2c92de27c86fb621895f5196c833e63b.setIcon(div_icon_cca6ff35d36684faa7f4b6458d5944db);
+            
+    
+                marker_5efe57863d197eeddd550864128d80b9.setIcon(div_icon_f127415a8f691ae787b46ce2b151b8f6);
+            
+    
+                marker_bb151a55ac9e9b016126fa124000ec16.setIcon(div_icon_0b32a5bd35aeeae92540715100554930);
+            
+    
+                marker_6beea510e0e8bb91eaa5ffdf8e8af6c2.setIcon(div_icon_eeb18c854c6ec112cd7c112473f04055);
+            
+</script>
+</html>
